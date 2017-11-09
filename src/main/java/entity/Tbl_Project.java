@@ -1,4 +1,4 @@
-package dao;
+package entity;
 
 public class Tbl_Project {
 	private String kodeProject;
@@ -16,6 +16,4 @@ public class Tbl_Project {
 	public void setNamaProject(String namaProject) {
 		this.namaProject = namaProject;
 	}
-	
-	
 }

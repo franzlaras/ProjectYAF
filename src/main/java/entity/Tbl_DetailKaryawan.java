@@ -1,13 +1,20 @@
-package dao;
+package entity;
 
 public class Tbl_DetailKaryawan {
 	private int no;
-	private Tbl_Project Project;
-	private Tbl_Keterangan Keterangan;
 	private double lembur;
-	private Tbl_Klaim Klaim;
 	private double jumlah;
 	private Tbl_HeaderKaryawan HeaderKaryawan;
+	private Tbl_DetailKaryawan tbl_DetailKaryawan;
+	private Tbl_Project Project;
+	private Tbl_Klaim Klaim;
+	
+	public Tbl_DetailKaryawan getTbl_DetailKaryawan() {
+		return tbl_DetailKaryawan;
+	}
+	public void setTbl_DetailKaryawan(Tbl_DetailKaryawan tbl_DetailKaryawan) {
+		this.tbl_DetailKaryawan = tbl_DetailKaryawan;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -19,12 +26,6 @@ public class Tbl_DetailKaryawan {
 	}
 	public void setProject(Tbl_Project project) {
 		Project = project;
-	}
-	public Tbl_Keterangan getKeterangan() {
-		return Keterangan;
-	}
-	public void setKeterangan(Tbl_Keterangan keterangan) {
-		Keterangan = keterangan;
 	}
 	public double getLembur() {
 		return lembur;
