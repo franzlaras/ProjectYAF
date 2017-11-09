@@ -102,7 +102,6 @@
 								<column label="" width="11%"
 									align="right" />
 								<column label="" width="18%" />
-								<column label="" width="1%" />
 								<column label="" width="10%"
 									align="right" />
 								<column label="" width="78%" />
@@ -111,28 +110,24 @@
 								<row>
 									<label value="Transport : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Taxi : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Parkir : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Lembur : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Kesehatan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Entertain : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="BPJS Kes : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Other : " />
 									<textbox value="" />
 								</row>
@@ -141,12 +136,10 @@
 									<textbox value="" />
 									<label value="" />
 									<label value="" />
-									<label value="" />
 								</row>
 								<row>
 									<label value="Reward Triwulan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="" />
 									<label value="" />
 								</row>
@@ -169,37 +162,33 @@
 								<column label="" width="11%"
 									align="right" />
 								<column label="" width="18%" />
-								<column label="" width="1%" />
 								<column label="" width="10%"
 									align="right" />
 								<column label="" width="78%" />
+								<column label="" width="1%" />
 							</columns>
 							<rows>
 								<row>
 									<label value="Transport : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Taxi : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Parkir : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Lembur : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Kesehatan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Entertain : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="BPJS Kes : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Other : " />
 									<textbox value="" />
 								</row>
@@ -208,12 +197,10 @@
 									<textbox value="" />
 									<label value="" />
 									<label value="" />
-									<label value="" />
 								</row>
 								<row>
 									<label value="Reward Triwulan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="" />
 									<label value="" />
 								</row>
@@ -235,37 +222,33 @@
 								<column label="" width="11%"
 									align="right" />
 								<column label="" width="18%" />
-								<column label="" width="1%" />
 								<column label="" width="10%"
 									align="right" />
 								<column label="" width="78%" />
+								<column label="" width="1%" />
 							</columns>
 							<rows>
 								<row>
 									<label value="Transport : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Taxi : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Parkir : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Lembur : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Kesehatan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Entertain : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="BPJS Kes : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Other : " />
 									<textbox value="" />
 								</row>
@@ -274,12 +257,10 @@
 									<textbox value="" />
 									<label value="" />
 									<label value="" />
-									<label value="" />
 								</row>
 								<row>
 									<label value="Reward Triwulan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="" />
 									<label value="" />
 								</row>
@@ -301,37 +282,33 @@
 								<column label="" width="11%"
 									align="right" />
 								<column label="" width="18%" />
-								<column label="" width="1%" />
 								<column label="" width="10%"
 									align="right" />
 								<column label="" width="78%" />
+								<column label="" width="1%" />
 							</columns>
 							<rows>
 								<row>
 									<label value="Transport : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Taxi : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Parkir : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Lembur : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Kesehatan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Entertain : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="BPJS Kes : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Other : " />
 									<textbox value="" />
 								</row>
@@ -340,12 +317,10 @@
 									<textbox value="" />
 									<label value="" />
 									<label value="" />
-									<label value="" />
 								</row>
 								<row>
 									<label value="Reward Triwulan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="" />
 									<label value="" />
 								</row>
@@ -367,37 +342,33 @@
 								<column label="" width="11%"
 									align="right" />
 								<column label="" width="18%" />
-								<column label="" width="1%" />
 								<column label="" width="10%"
 									align="right" />
 								<column label="" width="78%" />
+								<column label="" width="1%" />
 							</columns>
 							<rows>
 								<row>
 									<label value="Transport : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Taxi : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Parkir : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Lembur : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="Kesehatan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Entertain : " />
 									<textbox value="" />
 								</row>
 								<row>
 									<label value="BPJS Kes : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="Other : " />
 									<textbox value="" />
 								</row>
@@ -406,12 +377,10 @@
 									<textbox value="" />
 									<label value="" />
 									<label value="" />
-									<label value="" />
 								</row>
 								<row>
 									<label value="Reward Triwulan : " />
 									<textbox value="" />
-									<label value="" />
 									<label value="" />
 									<label value="" />
 								</row>
