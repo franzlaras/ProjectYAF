@@ -1,6 +1,195 @@
-<?page title="Indocyber-DataProject" contentType="text/html;charset=UTF-8"?>
-<zk>
-<window title="Indocyber-DataProject" border="normal">
-New Content Here!
-</window>
+<?page title="Indocyber - Data Project" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:c="client">
+<zscript>
+int i = 0
+</zscript>
+	<window title="Indocyber-DataProject" border="normal">
+		<grid>
+			<columns>
+				<column label="" width="80px" />
+				<column label="" width="190px" />
+			</columns>
+			<rows>
+				<row>
+					<label value="Periode : " />
+					<datebox id="db2" cols="12" format="medium"
+						onCreate="self.value = new Date()" />
+				</row>
+				<row>
+					<label value="Nama : " />
+					<columnlayout>
+						<columnchildren>
+							<textbox>
+								<custom-attributes
+									org.zkoss.zul.image.preload="true" />
+							</textbox>
+							<image src="/imgs/iconsearch.png" />
+							<!-- <button image="/imgs/iconsearch.png" width="10%"/> -->
+						</columnchildren>
+					</columnlayout>
+				</row>
+				<row>
+					<label value="NIK : " />
+					<textbox readonly="true" />
+				</row>
+				<row>
+					<label value="No Rek : " />
+					<textbox readonly="true" />
+				</row>
+			</rows>
+		</grid>
+		<separator/>
+		<zscript>
+int i = 0
+</zscript>
+    <groupbox closable="false" sclass="z-demo-config" style="padding: 10px;">
+        <caption label="List Project"></caption>
+        <tabbox id="tbx1" hflex="1">
+            <!-- Server side customize event(onTabAdd) handling -->
+            <attribute name="onTabAdd">
+                Tab newTab = new Tab("New Tab " + i);
+                newTab.setSelected(true);
+                Tabpanel newTabpanel = new Tabpanel();
+                newTabpanel.appendChild(new Label("New Tabpanel Text " + i++));
+                tbx1.getTabs().insertBefore(newTab, plusTab);
+                newTabpanel.setParent(tbx1.getTabpanels());
+            </attribute>
+            <tabs>
+                <tab>Tab A</tab>
+                <tab>Tab B</tab>
+                <tab>Tab C</tab>
+                <!-- Plus Tab - used to trigger add tab event -->
+                <tab id="plusTab" label="+" sclass="plusTab">
+                    <!-- Overwrite default click handing function-->
+                    <attribute c:name="doClick_">
+                        function (evt) { 
+                                //Send an event named "onTabAdd" to tabbox on server 
+                        zAu.send(new zk.Event(evt.target.getTabbox(), "onTabAdd", null)); 
+                        }
+                    </attribute>
+                </tab>
+            </tabs>
+            <tabpanels>
+                <tabpanel>
+                	<grid>
+						<columns>
+							<column label="" width="11%" align="right"/>
+							<column label="" width="18%" />
+							<column label="" width="1%"/>
+							<column label="" width="10%" align="right"/>
+							<column label="" width="78%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Transport : " />
+								<textbox value="" />
+								<label value=""/>
+								<label value="Taxi : " />
+								<textbox value="" />
+							</row>
+							<row>
+								<label value="Parkir : " />
+								<textbox value="" />
+								<label value=""/>
+								<label value="Lembur : " />
+								<textbox value="" />
+							</row>
+							<row>
+								<label value="Kesehatan : " />
+								<textbox value="" />
+								<label value=""/>
+								<label value="Entertain : " />
+								<textbox value="" />
+							</row>
+							<row>
+								<label value="BPJS Kes : " />
+								<textbox value="" />
+								<label value=""/>
+								<label value="Other : " />
+								<textbox value="" />
+							</row>
+							<row>
+								<label value="Reward Monthly : " />
+								<textbox value="" />
+								<label value=""/>
+								<label value=""/>
+								<label value=""/>
+							</row>
+							<row>
+								<label value="Reward Triwulan : " />
+								<textbox value="" />
+								<label value=""/>
+								<label value=""/>
+								<label value=""/>
+							</row>
+						</rows>
+					</grid>
+                </tabpanel>
+                <tabpanel>Content B</tabpanel>
+                <tabpanel>Content C</tabpanel>
+            </tabpanels>
+        </tabbox>
+    </groupbox>
+		<!-- <tabbox id="tbx1" hflex="1">
+			<attribute name="onTabAdd">
+	Tab newTab = new Tab("New Tab " + i);
+	newTab.setSelected(true);
+	Tabpanel newTabpanel = new Tabpanel();
+	newTabpanel.appendChild(new Label("New Tabpanel Text " + i++));
+	tbx1.getTabs().insertBefore(newTab, plusTab);
+	newTabpanel.setParent(tbx1.getTabpanels());
+</attribute>
+			<tabs>
+				<tab id="A" label="Tab A" />
+				<tab id="B" label="Tab B" />
+				<tab id="C" label="Tab C" />
+				<tab id="plusTab" label="+" sclass="plusTab">
+					<attribute c:name="doClick_">
+						function (evt) { //Send an event named
+						"onTabAdd" to tabbox on server zAu.send(new
+						zk.Event(evt.target.getTabbox(), "onTabAdd",
+						null)); }
+					</attribute>
+				</tab>
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<grid>
+						<columns>
+							<column label="" width="80px" />
+							<column label="" width="190px" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Transport : " />
+								<textbox value="" />
+							</row>
+							<row>
+								<label value="Parkir : " />
+								<textbox value="" />
+							</row>
+						</rows>
+					</grid>
+				</tabpanel>
+				<tabpanel>
+					<grid>
+						<columns>
+							<column label="" width="80px" />
+							<column label="" width="190px" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Transport : " />
+								<textbox value="" />
+							</row>
+							<row>
+								<label value="Parkir : " />
+								<textbox value="" />
+							</row>
+						</rows>
+					</grid>
+				</tabpanel>
+			</tabpanels>
+		</tabbox> -->
+	</window>
 </zk>
