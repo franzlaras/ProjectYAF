@@ -34,8 +34,6 @@
 								mold="paging" autopaging="true"
 								onSelect="bd.value=self.selectedItem.label; bd.close();">
 								<listhead>
-									<listheader
-										label="Programming Languages" />
 								</listhead>
 								<listitem label="${each}"
 									forEach="${languages}" />
@@ -55,11 +53,11 @@
 				</row>
 				<row>
 					<label value="NIK : " />
-					<textbox readonly="true" />
+					<textbox readonly="true" value="17070022" style="text-align:right;"/>
 				</row>
 				<row>
 					<label value="No Rek : " />
-					<textbox readonly="true" />
+					<textbox readonly="true" value="421-267-0395" style="text-align:right;"/>
 				</row>
 			</rows>
 		</grid>
