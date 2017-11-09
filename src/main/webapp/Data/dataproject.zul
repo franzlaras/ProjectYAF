@@ -1,12 +1,23 @@
 <?page title="Indocyber - Data Project" contentType="text/html;charset=UTF-8"?>
 <zk xmlns:c="client">
-<zscript>
-int i = 0
-</zscript>
-	<window title="Indocyber-DataProject" border="normal">
+	<window title="Indocyber-DataProject" border="normal"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('vmd.DpVmd')">
+		<div hflex="1" vflex="1" sclass="banner">
+			<hbox hflex="1" vflex="1" align="center">
+				<a>
+					<image src="/imgs/iconCom.png" width="90px" />
+				</a>
+				<div width="400px">
+					<label value="PT. INDOCYBER(IGLO)"
+						sclass="banner-head" />
+				</div>
+			</hbox>
+		</div>
+		<separator />
 		<grid>
 			<columns>
-				<column label="" width="80px" />
+				<column label="" width="80px" align="right" />
 				<column label="" width="190px" />
 			</columns>
 			<rows>
@@ -17,16 +28,30 @@ int i = 0
 				</row>
 				<row>
 					<label value="Nama : " />
-					<columnlayout>
+					<bandbox id="bd" mold="rounded" autodrop="true">
+						<bandpopup>
+							<listbox height="250px" width="450px"
+								mold="paging" autopaging="true"
+								onSelect="bd.value=self.selectedItem.label; bd.close();">
+								<listhead>
+									<listheader
+										label="Programming Languages" />
+								</listhead>
+								<listitem label="${each}"
+									forEach="${languages}" />
+							</listbox>
+						</bandpopup>
+					</bandbox>
+					<!-- <columnlayout>
 						<columnchildren>
-							<textbox>
-								<custom-attributes
-									org.zkoss.zul.image.preload="true" />
-							</textbox>
-							<image src="/imgs/iconsearch.png" />
-							<!-- <button image="/imgs/iconsearch.png" width="10%"/> -->
+						<textbox>
+						<custom-attributes
+						org.zkoss.zul.image.preload="true" />
+						</textbox>
+						<image src="/imgs/iconsearch.png" />
+						<button image="/imgs/iconsearch.png" width="10%"/>
 						</columnchildren>
-					</columnlayout>
+						</columnlayout> -->
 				</row>
 				<row>
 					<label value="NIK : " />
@@ -38,158 +63,371 @@ int i = 0
 				</row>
 			</rows>
 		</grid>
-		<separator/>
-		<zscript>
-int i = 0
-</zscript>
-    <groupbox closable="false" sclass="z-demo-config" style="padding: 10px;">
-        <caption label="List Project"></caption>
-        <tabbox id="tbx1" hflex="1">
-            <!-- Server side customize event(onTabAdd) handling -->
-            <attribute name="onTabAdd">
-                Tab newTab = new Tab("New Tab " + i);
-                newTab.setSelected(true);
-                Tabpanel newTabpanel = new Tabpanel();
-                newTabpanel.appendChild(new Label("New Tabpanel Text " + i++));
-                tbx1.getTabs().insertBefore(newTab, plusTab);
-                newTabpanel.setParent(tbx1.getTabpanels());
-            </attribute>
-            <tabs>
-                <tab>Tab A</tab>
-                <tab>Tab B</tab>
-                <tab>Tab C</tab>
-                <!-- Plus Tab - used to trigger add tab event -->
-                <tab id="plusTab" label="+" sclass="plusTab">
-                    <!-- Overwrite default click handing function-->
-                    <attribute c:name="doClick_">
-                        function (evt) { 
-                                //Send an event named "onTabAdd" to tabbox on server 
-                        zAu.send(new zk.Event(evt.target.getTabbox(), "onTabAdd", null)); 
-                        }
-                    </attribute>
-                </tab>
-            </tabs>
-            <tabpanels>
-                <tabpanel>
-                	<grid>
-						<columns>
-							<column label="" width="11%" align="right"/>
-							<column label="" width="18%" />
-							<column label="" width="1%"/>
-							<column label="" width="10%" align="right"/>
-							<column label="" width="78%" />
-						</columns>
-						<rows>
-							<row>
-								<label value="Transport : " />
-								<textbox value="" />
-								<label value=""/>
-								<label value="Taxi : " />
-								<textbox value="" />
-							</row>
-							<row>
-								<label value="Parkir : " />
-								<textbox value="" />
-								<label value=""/>
-								<label value="Lembur : " />
-								<textbox value="" />
-							</row>
-							<row>
-								<label value="Kesehatan : " />
-								<textbox value="" />
-								<label value=""/>
-								<label value="Entertain : " />
-								<textbox value="" />
-							</row>
-							<row>
-								<label value="BPJS Kes : " />
-								<textbox value="" />
-								<label value=""/>
-								<label value="Other : " />
-								<textbox value="" />
-							</row>
-							<row>
-								<label value="Reward Monthly : " />
-								<textbox value="" />
-								<label value=""/>
-								<label value=""/>
-								<label value=""/>
-							</row>
-							<row>
-								<label value="Reward Triwulan : " />
-								<textbox value="" />
-								<label value=""/>
-								<label value=""/>
-								<label value=""/>
-							</row>
-						</rows>
-					</grid>
-                </tabpanel>
-                <tabpanel>Content B</tabpanel>
-                <tabpanel>Content C</tabpanel>
-            </tabpanels>
-        </tabbox>
-    </groupbox>
-		<!-- <tabbox id="tbx1" hflex="1">
-			<attribute name="onTabAdd">
-	Tab newTab = new Tab("New Tab " + i);
-	newTab.setSelected(true);
-	Tabpanel newTabpanel = new Tabpanel();
-	newTabpanel.appendChild(new Label("New Tabpanel Text " + i++));
-	tbx1.getTabs().insertBefore(newTab, plusTab);
-	newTabpanel.setParent(tbx1.getTabpanels());
-</attribute>
-			<tabs>
-				<tab id="A" label="Tab A" />
-				<tab id="B" label="Tab B" />
-				<tab id="C" label="Tab C" />
-				<tab id="plusTab" label="+" sclass="plusTab">
-					<attribute c:name="doClick_">
+		<separator />
+		<groupbox closable="false" sclass="z-demo-config"
+			style="padding: 10px;">
+			<caption label="List Project"></caption>
+			<tabbox id="tbx1" hflex="1">
+				<!-- Server side customize event(onTabAdd) handling -->
+				<!-- <attribute name="onTabAdd">
+					Tab newTab = new Tab("New Tab " + i);
+					newTab.setSelected(true);
+					Tabpanel newTabpanel = new Tabpanel();
+					newTabpanel.appendChild(new Label("New Tabpanel Text " + i++));
+					tbx1.getTabs().insertBefore(newTab, plusTab);
+					newTabpanel.setParent(tbx1.getTabpanels());
+					</attribute> -->
+				<tabs>
+					<tab>Tab A</tab>
+					<tab>Tab B</tab>
+					<tab>Tab C</tab>
+					<tab>Tab D</tab>
+					<tab>Tab E</tab>
+					<!-- Plus Tab - used to trigger add tab event -->
+					<!-- <tab id="plusTab" label="+" sclass="plusTab">
+						Overwrite default click handing function
+						<attribute c:name="doClick_">
 						function (evt) { //Send an event named
 						"onTabAdd" to tabbox on server zAu.send(new
 						zk.Event(evt.target.getTabbox(), "onTabAdd",
 						null)); }
-					</attribute>
-				</tab>
-			</tabs>
-			<tabpanels>
-				<tabpanel>
-					<grid>
-						<columns>
-							<column label="" width="80px" />
-							<column label="" width="190px" />
-						</columns>
-						<rows>
-							<row>
-								<label value="Transport : " />
-								<textbox value="" />
-							</row>
-							<row>
-								<label value="Parkir : " />
-								<textbox value="" />
-							</row>
-						</rows>
-					</grid>
-				</tabpanel>
-				<tabpanel>
-					<grid>
-						<columns>
-							<column label="" width="80px" />
-							<column label="" width="190px" />
-						</columns>
-						<rows>
-							<row>
-								<label value="Transport : " />
-								<textbox value="" />
-							</row>
-							<row>
-								<label value="Parkir : " />
-								<textbox value="" />
-							</row>
-						</rows>
-					</grid>
-				</tabpanel>
-			</tabpanels>
-		</tabbox> -->
+						</attribute>
+						</tab> -->
+				</tabs>
+				<tabpanels>
+					<tabpanel>
+						Tab A
+						<grid>
+							<columns>
+								<column label="" width="11%"
+									align="right" />
+								<column label="" width="18%" />
+								<column label="" width="1%" />
+								<column label="" width="10%"
+									align="right" />
+								<column label="" width="78%" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Transport : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Taxi : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Parkir : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Lembur : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Kesehatan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Entertain : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="BPJS Kes : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Other : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Reward Monthly : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+								<row>
+									<label value="Reward Triwulan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+							</rows>
+						</grid>
+						<vlayout>
+							<groupbox>
+								<space />
+								<button label="Save"
+									onClick="@command('save')" />
+								<space />
+							</groupbox>
+						</vlayout>
+					</tabpanel>
+
+					<tabpanel>
+						Tab B
+						<grid>
+							<columns>
+								<column label="" width="11%"
+									align="right" />
+								<column label="" width="18%" />
+								<column label="" width="1%" />
+								<column label="" width="10%"
+									align="right" />
+								<column label="" width="78%" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Transport : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Taxi : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Parkir : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Lembur : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Kesehatan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Entertain : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="BPJS Kes : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Other : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Reward Monthly : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+								<row>
+									<label value="Reward Triwulan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+							</rows>
+						</grid>
+						<vlayout>
+							<groupbox>
+								<space />
+								<button label="Save"
+									onClick="@command('save')" />
+								<space />
+							</groupbox>
+						</vlayout>
+					</tabpanel>
+					<tabpanel>
+						Tab C
+						<grid>
+							<columns>
+								<column label="" width="11%"
+									align="right" />
+								<column label="" width="18%" />
+								<column label="" width="1%" />
+								<column label="" width="10%"
+									align="right" />
+								<column label="" width="78%" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Transport : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Taxi : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Parkir : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Lembur : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Kesehatan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Entertain : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="BPJS Kes : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Other : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Reward Monthly : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+								<row>
+									<label value="Reward Triwulan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+							</rows>
+						</grid>
+						<vlayout>
+							<groupbox>
+								<space />
+								<button label="Save"
+									onClick="@command('save')" />
+								<space />
+							</groupbox>
+						</vlayout>
+					</tabpanel>
+					<tabpanel>
+						Tab D
+						<grid>
+							<columns>
+								<column label="" width="11%"
+									align="right" />
+								<column label="" width="18%" />
+								<column label="" width="1%" />
+								<column label="" width="10%"
+									align="right" />
+								<column label="" width="78%" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Transport : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Taxi : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Parkir : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Lembur : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Kesehatan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Entertain : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="BPJS Kes : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Other : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Reward Monthly : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+								<row>
+									<label value="Reward Triwulan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+							</rows>
+						</grid>
+						<vlayout>
+							<groupbox>
+								<space />
+								<button label="Save"
+									onClick="@command('save')" />
+								<space />
+							</groupbox>
+						</vlayout>
+					</tabpanel>
+					<tabpanel>
+						Tab E
+						<grid>
+							<columns>
+								<column label="" width="11%"
+									align="right" />
+								<column label="" width="18%" />
+								<column label="" width="1%" />
+								<column label="" width="10%"
+									align="right" />
+								<column label="" width="78%" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Transport : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Taxi : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Parkir : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Lembur : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Kesehatan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Entertain : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="BPJS Kes : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="Other : " />
+									<textbox value="" />
+								</row>
+								<row>
+									<label value="Reward Monthly : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+								<row>
+									<label value="Reward Triwulan : " />
+									<textbox value="" />
+									<label value="" />
+									<label value="" />
+									<label value="" />
+								</row>
+							</rows>
+						</grid>
+						<vlayout>
+							<groupbox>
+								<space />
+								<button label="Save"
+									onClick="@command('save')" />
+								<space />
+							</groupbox>
+						</vlayout>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</groupbox>
 	</window>
 </zk>
