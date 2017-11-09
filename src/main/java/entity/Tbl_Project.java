@@ -1,8 +1,9 @@
-package dao;
+package entity;
 
 public class Tbl_Project {
 	private String kodeProject;
 	private String namaProject;
+	private Tbl_Keterangan tbl_Keterangan;
 
 	public String getKodeProject() {
 		return kodeProject;
@@ -16,6 +17,10 @@ public class Tbl_Project {
 	public void setNamaProject(String namaProject) {
 		this.namaProject = namaProject;
 	}
-	
-	
+	public Tbl_Keterangan getTbl_Keterangan() {
+		return tbl_Keterangan;
+	}
+	public void setTbl_Keterangan(Tbl_Keterangan tbl_Keterangan) {
+		this.tbl_Keterangan = tbl_Keterangan;
+	}
 }

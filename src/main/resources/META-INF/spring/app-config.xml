@@ -67,5 +67,5 @@
 
 	<!-- Enable Spring data -->
 	<jpa:repositories transaction-manager-ref="txManager"
-		base-package="dao" entity-manager-factory-ref="emFactory" />
+		base-package="entity" entity-manager-factory-ref="emFactory" />
 </beans>

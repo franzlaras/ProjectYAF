@@ -1,34 +1,29 @@
-package dao;
+package entity;
 
-public class Tbl_Klaim {
-	private String kodeKlaim;
+public class Tbl_Other {
+	private String kodeOther;
 	private String deskripsi;
 	private double jumlah;
 	
-	public Tbl_Klaim() {
+	public Tbl_Other() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public String getKodeKlaim() {
-		return kodeKlaim;
+	
+	public String getKodeOther() {
+		return kodeOther;
 	}
-
-	public void setKodeKlaim(String kodeKlaim) {
-		this.kodeKlaim = kodeKlaim;
+	public void setKodeOther(String kodeOther) {
+		this.kodeOther = kodeOther;
 	}
-
 	public String getDeskripsi() {
 		return deskripsi;
 	}
-
 	public void setDeskripsi(String deskripsi) {
 		this.deskripsi = deskripsi;
 	}
-
 	public double getJumlah() {
 		return jumlah;
 	}
-
 	public void setJumlah(double jumlah) {
 		this.jumlah = jumlah;
 	}
