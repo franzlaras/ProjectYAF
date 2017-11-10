@@ -21,6 +21,7 @@ public class TesKlaim {
 		Tbl_Klaim nu = new Tbl_Klaim();
 		nu.setBpjs(20.0);
 		nu.setTbl_Other(to);
+		mstKaryawandao.save(nu);
 		
 	}
 

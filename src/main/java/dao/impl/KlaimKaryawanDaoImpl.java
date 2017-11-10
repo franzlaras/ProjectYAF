@@ -44,10 +44,10 @@ public class KlaimKaryawanDaoImpl implements KlaimKaryawanDao {
 			ps.setDouble(5, klaimKaryawan.getBpjs());
 			ps.setDouble(6, klaimKaryawan.getRewardMonthly());
 			ps.setDouble(7, klaimKaryawan.getRewardTriwulan());
-			ps.setDouble(6, klaimKaryawan.getTaksi());
-			ps.setDouble(8, klaimKaryawan.getEntetainInternal());
-			ps.setDouble(9, klaimKaryawan.getEntertainEksternal());
-			ps.setString(10, klaimKaryawan.getTbl_Other().getKodeOther());
+			ps.setDouble(8, klaimKaryawan.getTaksi());
+			ps.setDouble(9, klaimKaryawan.getEntetainInternal());
+			ps.setDouble(10, klaimKaryawan.getEntertainEksternal());
+			ps.setString(11, klaimKaryawan.getTbl_Other().getKodeOther());
 
 			int out = ps.executeUpdate();
 			if (out != 0) {
@@ -93,13 +93,12 @@ public class KlaimKaryawanDaoImpl implements KlaimKaryawanDao {
 				mstKlaim.setTransport(rs.getDouble("transport"));
 				mstKlaim.setParkir(rs.getDouble("parkir"));
 				mstKlaim.setKesehatan(rs.getDouble("kesehatan"));
-				mstKlaim.setKesehatan(rs.getDouble("bpjs"));
+				mstKlaim.setBpjs(rs.getDouble("bpjs"));
 				mstKlaim.setRewardMonthly(rs.getDouble("reward_monthly"));
 				mstKlaim.setRewardTriwulan(rs.getDouble("reward_triwulan"));
 				mstKlaim.setTaksi(rs.getDouble("taxi"));
 				mstKlaim.setEntetainInternal(rs.getDouble("entertain_internal"));
-				mstKlaim.setEntetainInternal(rs
-						.getDouble("entertain_eksternal"));
+				mstKlaim.setEntetainInternal(rs.getDouble("entertain_external"));
 				Tbl_Other other = otherDao.findOne(rs.getString("other"));
 				mstKlaim.setTbl_Other(other);
 				listKota.add(mstKlaim);
