@@ -202,6 +202,7 @@
 			<version>${jackson.version}</version>
 		</dependency>
 		
+		<!-- JDBC -->
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>sqljdbc4</artifactId>

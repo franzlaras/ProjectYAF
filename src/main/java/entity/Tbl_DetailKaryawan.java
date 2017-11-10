@@ -4,7 +4,7 @@ public class Tbl_DetailKaryawan {
 	private int no;
 	private double lembur;
 	private double jumlah;
-	private double periode;
+	private String periode;
 	private int kantor;
 	private int transport;
 	private int cuti;
@@ -38,12 +38,15 @@ public class Tbl_DetailKaryawan {
 	public void setJumlah(double jumlah) {
 		this.jumlah = jumlah;
 	}
-	public double getPeriode() {
+	
+	public String getPeriode() {
 		return periode;
 	}
-	public void setPeriode(double periode) {
+
+	public void setPeriode(String periode) {
 		this.periode = periode;
 	}
+
 	public int getKantor() {
 		return kantor;
 	}
