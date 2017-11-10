@@ -16,13 +16,14 @@ import dao.KlaimKaryawanDao;
 import dao.OtherDao;
 import entity.Tbl_Klaim;
 import entity.Tbl_Other;
+import entity.Tbl_Project;
 
 @Repository
 public class KlaimKaryawanDaoImpl implements KlaimKaryawanDao {
 
 	@Autowired
 	DataSource dataSource;
-	
+
 	@Autowired
 	private OtherDao otherDao;
 
@@ -97,7 +98,8 @@ public class KlaimKaryawanDaoImpl implements KlaimKaryawanDao {
 				mstKlaim.setRewardTriwulan(rs.getDouble("reward_triwulan"));
 				mstKlaim.setTaksi(rs.getDouble("taxi"));
 				mstKlaim.setEntetainInternal(rs.getDouble("entertain_internal"));
-				mstKlaim.setEntetainInternal(rs.getDouble("entertain_eksternal"));
+				mstKlaim.setEntetainInternal(rs
+						.getDouble("entertain_eksternal"));
 				Tbl_Other other = otherDao.findOne(rs.getString("other"));
 				mstKlaim.setTbl_Other(other);
 				listKota.add(mstKlaim);
@@ -118,8 +120,42 @@ public class KlaimKaryawanDaoImpl implements KlaimKaryawanDao {
 
 	@Override
 	public Tbl_Klaim findOne(String nama) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT kode_klaim, transport, parkir, kesehatan, bpjs, reward_monthly, reward_triwulan, taxi, entertain_internal, entertain_external, other"
+				+ " FROM karyawan_klaim ";
+		Tbl_Klaim mstKlaim = new Tbl_Klaim();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = dataSource.getConnection();
+			ps = con.prepareStatement(query);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				mstKlaim.setTransport(rs.getDouble("transport"));
+				mstKlaim.setParkir(rs.getDouble("parkir"));
+				mstKlaim.setKesehatan(rs.getDouble("kesehatan"));
+				mstKlaim.setKesehatan(rs.getDouble("bpjs"));
+				mstKlaim.setRewardMonthly(rs.getDouble("reward_monthly"));
+				mstKlaim.setRewardTriwulan(rs.getDouble("reward_triwulan"));
+				mstKlaim.setTaksi(rs.getDouble("taxi"));
+				mstKlaim.setEntetainInternal(rs.getDouble("entertain_internal"));
+				mstKlaim.setEntetainInternal(rs.getDouble("entertain_eksternal"));
+				Tbl_Other other = otherDao.findOne(rs.getString("other"));
+				mstKlaim.setTbl_Other(other);
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return mstKlaim;
 	}
 
 }

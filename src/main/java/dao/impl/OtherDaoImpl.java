@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import dao.OtherDao;
 import entity.Tbl_Other;
+import entity.Tbl_Project;
 
 @Repository
 public class OtherDaoImpl implements OtherDao{
@@ -98,9 +99,34 @@ public class OtherDaoImpl implements OtherDao{
 	}
 
 	@Override
-	public Tbl_Other findOne(String nama) {
-		// TODO Auto-generated method stub
-		return null;
+	public Tbl_Other findOne(String kode) {
+		String query = "SELECT kode_other, desc_other, value_other  FROM karyawan_other where kode_other = '"+kode+"'";
+		Tbl_Other mstOther = new Tbl_Other();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = dataSource.getConnection();
+			ps = con.prepareStatement(query);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				mstOther.setKodeOther(rs.getString("kode_other"));
+				mstOther.setDeskripsi(rs.getString("desc_Other"));
+				mstOther.setJumlah(rs.getDouble("value_Other"));
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return mstOther;
 	}
 
 }

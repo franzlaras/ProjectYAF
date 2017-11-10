@@ -10,12 +10,28 @@ public class Tbl_DetailKaryawan {
 	private int cuti;
 	private int sakit;
 	private int terlambat;
-	private int reward;
-	private int no_rek;
+	private double reward;
+	private String no_rek;
 	private Tbl_HeaderKaryawan HeaderKaryawan;
 	private Tbl_Project Project;
 	private Tbl_Klaim Klaim;
 	
+	public double getReward() {
+		return reward;
+	}
+
+	public void setReward(double reward) {
+		this.reward = reward;
+	}
+
+	public String getNo_rek() {
+		return no_rek;
+	}
+
+	public void setNo_rek(String no_rek) {
+		this.no_rek = no_rek;
+	}
+
 	public Tbl_DetailKaryawan() {
 		// TODO Auto-generated constructor stub
 	}
@@ -77,12 +93,6 @@ public class Tbl_DetailKaryawan {
 	public void setTerlambat(int terlambat) {
 		this.terlambat = terlambat;
 	}
-	public int getReward() {
-		return reward;
-	}
-	public void setReward(int reward) {
-		this.reward = reward;
-	}
 	public Tbl_HeaderKaryawan getHeaderKaryawan() {
 		return HeaderKaryawan;
 	}
@@ -100,12 +110,6 @@ public class Tbl_DetailKaryawan {
 	}
 	public void setKlaim(Tbl_Klaim klaim) {
 		Klaim = klaim;
-	}
-	public int getNo_rek() {
-		return no_rek;
-	}
-	public void setNo_rek(int no_rek) {
-		this.no_rek = no_rek;
 	}
 	
 	

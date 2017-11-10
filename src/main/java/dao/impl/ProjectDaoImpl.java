@@ -97,7 +97,7 @@ public class ProjectDaoImpl implements ProjectDao {
 
 	@Override
 	public Tbl_Project findOne(String kodeProject) {
-		String query = "SELECT kode_project,nama_project FROM karyawan_projects where kode_project = '"+"'";
+		String query = "SELECT kode_project,nama_project FROM karyawan_projects where kode_project = '"+kodeProject+"'";
 		Tbl_Project mstProject = new Tbl_Project();
 		Connection con = null;
 		PreparedStatement ps = null;
