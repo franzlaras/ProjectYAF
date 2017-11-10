@@ -23,12 +23,20 @@
 		</property>
 	</bean>
 
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${db.driver}" />
 		<property name="jdbcUrl" value="${db.url}" />
 		<property name="user" value="${db.username}" />
 		<property name="password" value="${db.password}" />
 		<property name="initialPoolSize" value="${db.pool.init_size}" />
+	</bean>  -->
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"  />
+		<property name="url" value="jdbc:sqlserver://localhost
+		;databaseName=DbProjectYAF"/>
+		<property name="username" value="sa"/>
+		<property name="password" value="123"/>	
 	</bean>
 
 
