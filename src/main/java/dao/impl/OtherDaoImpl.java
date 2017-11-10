@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import dao.OtherDao;
-import entity.Tbl_Klaim;
 import entity.Tbl_Other;
 
 @Repository
