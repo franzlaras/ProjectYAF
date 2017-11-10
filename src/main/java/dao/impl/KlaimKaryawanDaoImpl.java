@@ -138,7 +138,7 @@ public class KlaimKaryawanDaoImpl implements KlaimKaryawanDao {
 				mstKlaim.setRewardTriwulan(rs.getDouble("reward_triwulan"));
 				mstKlaim.setTaksi(rs.getDouble("taxi"));
 				mstKlaim.setEntetainInternal(rs.getDouble("entertain_internal"));
-				mstKlaim.setEntetainInternal(rs.getDouble("entertain_eksternal"));
+				mstKlaim.setEntetainInternal(rs.getDouble("entertain_external"));
 				Tbl_Other other = otherDao.findOne(rs.getString("other"));
 				mstKlaim.setTbl_Other(other);
 			}

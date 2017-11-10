@@ -129,7 +129,7 @@ public class HeaderKaryawanDaoImpl implements HeaderKaryawanDao {
 
 	@Override
 	public Tbl_HeaderKaryawan findOne(String periode) {
-		String query = "select * from karyawan_headers where periode= '"
+		String query = "select * from karyawan_headers where periode_header= '"
 				+ periode + "'";
 		Tbl_HeaderKaryawan Header = new Tbl_HeaderKaryawan();
 		Connection con = null;

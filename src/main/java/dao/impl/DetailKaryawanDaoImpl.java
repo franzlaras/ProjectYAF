@@ -118,12 +118,13 @@ public class DetailKaryawanDaoImpl implements DetailKaryawanDao {
 				Tbl_Project project2=new Tbl_Project();
 				Tbl_Klaim klaim2 = new Tbl_Klaim();
 				
-				headers = rs.getString("nama");
+				headers = rs.getString("nama_karyawan");
 				tbl_headerKaryawan = headerKaryawanDao.findOne(headers);
 				detail.setHeaderKaryawan(tbl_headerKaryawan);
 				
-				project = rs.getString("kode_project");
+				project = rs.getString("project");
 				tbl_Project = projectDao.findOne(project);
+				detail.setProject(tbl_Project);
 				
 				detail.setKantor(rs.getInt("kantor"));
 				detail.setTransport(rs.getInt("transport"));
@@ -133,7 +134,7 @@ public class DetailKaryawanDaoImpl implements DetailKaryawanDao {
 				detail.setReward(rs.getDouble("reward"));
 				detail.setLembur(rs.getInt("lembur"));
 				
-				klaim = rs.getString("kode_klaim");
+				klaim = rs.getString("tipe_klaim");
 				tbl_Klaim = klaimKaryawanDao.findOne(klaim);
 				detail.setKlaim(tbl_Klaim);
 				
@@ -178,13 +179,13 @@ public class DetailKaryawanDaoImpl implements DetailKaryawanDao {
 				//Tbl_Project project=new Tbl_Project();
 				//Tbl_Klaim klaim = new Tbl_Klaim();
 				
-				headers = rs.getString("nama");
+				headers = rs.getString("nama_karyawan");
 				tbl_headerKaryawan = headerKaryawanDao.findOne(headers);
 				detail.setHeaderKaryawan(tbl_headerKaryawan);
 				
-//				project = rs.getString("kode_project");
-//				tbl_Project = pr
-				
+				project = rs.getString("project");
+				tbl_Project = projectDao.findOne(project);
+				detail.setProject(tbl_Project);
 				detail.setKantor(rs.getInt("kantor"));
 				detail.setTransport(rs.getInt("transport"));
 				detail.setCuti(rs.getInt("cuti"));
@@ -192,8 +193,7 @@ public class DetailKaryawanDaoImpl implements DetailKaryawanDao {
 				detail.setTerlambat(rs.getInt("terlambat"));
 				detail.setReward(rs.getDouble("reward"));
 				detail.setLembur(rs.getInt("lembur"));
-				
-				klaim = rs.getString("kode_klaim");
+				klaim = rs.getString("tipe_klaim");
 				tbl_Klaim = klaimKaryawanDao.findOne(klaim);
 				detail.setKlaim(tbl_Klaim);
 				
