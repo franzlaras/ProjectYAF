@@ -71,7 +71,7 @@ public class KlaimKaryawanDaoImpl implements KlaimKaryawanDao {
 	}
 
 	@Override
-	public void delete(Tbl_Klaim klaimrKaryawan) {
+	public void delete(String klaimrKaryawan) {
 
 	}
 
