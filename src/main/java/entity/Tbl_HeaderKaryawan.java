@@ -11,6 +11,7 @@ public class Tbl_HeaderKaryawan {
 	private String nik;
 	private String noAbsen;
 	private String noRek;
+	private Tbl_DetailKaryawan DetailKaryawan;
 	
 	public Tbl_HeaderKaryawan() {
 		// TODO Auto-generated constructor stub
@@ -66,12 +67,13 @@ public class Tbl_HeaderKaryawan {
 	public void setNoRek(String noRek) {
 		this.noRek = noRek;
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	public Tbl_DetailKaryawan getDetailKaryawan() {
+		return DetailKaryawan;
+	}
+
+	public void setDetailKaryawan(Tbl_DetailKaryawan detailKaryawan) {
+		DetailKaryawan = detailKaryawan;
+	}
 	
 }
