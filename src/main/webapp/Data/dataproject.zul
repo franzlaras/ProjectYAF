@@ -23,18 +23,25 @@
 			<rows>
 				<row>
 					<label value="Periode : " />
-					<datebox id="db2" cols="12" format="medium"
+					<datebox id="db2" cols="12" format="MM, yyyy"
 						onCreate="self.value = new Date()" />
+					<!-- <datebox format="dd/MM/yyyy">
+						<attribute name="onChange">
+							import java.text.SimpleDateFormat;
+							SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
+							tb.value = sd.format(self.value);
+						</attribute>
+					</datebox>
+					<textbox id="tb" /> -->
 				</row>
 				<row>
 					<label value="Nama : " />
 					<bandbox id="bd" mold="rounded" autodrop="true">
 						<bandpopup>
-							<listbox height="250px" width="450px"
+							<listbox height="150px" width="150px"
 								mold="paging" autopaging="true"
 								onSelect="bd.value=self.selectedItem.label; bd.close();">
-								<listhead>
-								</listhead>
+								<listhead></listhead>
 								<listitem label="${each}"
 									forEach="${languages}" />
 							</listbox>
@@ -53,11 +60,13 @@
 				</row>
 				<row>
 					<label value="NIK : " />
-					<textbox readonly="true" value="17070022" style="text-align:right;"/>
+					<textbox readonly="true" value="17070022"
+						style="text-align:right;" />
 				</row>
 				<row>
 					<label value="No Rek : " />
-					<textbox readonly="true" value="421-267-0395" style="text-align:right;"/>
+					<textbox readonly="true" value="421-267-0395"
+						style="text-align:right;" />
 				</row>
 			</rows>
 		</grid>
@@ -99,45 +108,67 @@
 							<columns>
 								<column label="" width="11%"
 									align="right" />
-								<column label="" width="18%" />
-								<column label="" width="10%"
+								<column label="" width="15%" />
+								<column label="" width="12%"
 									align="right" />
 								<column label="" width="78%" />
 							</columns>
 							<rows>
 								<row>
 									<label value="Transport : " />
-									<textbox value="" />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
 									<label value="Taxi : " />
-									<textbox value="" />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
 								</row>
 								<row>
 									<label value="Parkir : " />
-									<textbox value="" />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
 									<label value="Lembur : " />
-									<textbox value="" />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
 								</row>
 								<row>
 									<label value="Kesehatan : " />
-									<textbox value="" />
-									<label value="Entertain : " />
-									<textbox value="" />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
+									<label value="Entertain Internal : " />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
 								</row>
 								<row>
 									<label value="BPJS Kes : " />
-									<textbox value="" />
-									<label value="Other : " />
-									<textbox value="" />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
+									<label value="Entertain External : " />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
 								</row>
 								<row>
 									<label value="Reward Monthly : " />
-									<textbox value="" />
-									<label value="" />
-									<label value="" />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
+									<textbox value="Other" width="100px"/>
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
 								</row>
 								<row>
 									<label value="Reward Triwulan : " />
-									<textbox value="" />
+									<doublebox 
+										format=",###.#" width="130px"
+										style="text-align:right;"/>
 									<label value="" />
 									<label value="" />
 								</row>
