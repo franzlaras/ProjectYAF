@@ -11,9 +11,15 @@ public class Tbl_DetailKaryawan {
 	private int sakit;
 	private int terlambat;
 	private int reward;
+	private int no_rek;
 	private Tbl_HeaderKaryawan HeaderKaryawan;
 	private Tbl_Project Project;
 	private Tbl_Klaim Klaim;
+	
+	public Tbl_DetailKaryawan() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public int getNo() {
 		return no;
 	}
@@ -91,6 +97,12 @@ public class Tbl_DetailKaryawan {
 	}
 	public void setKlaim(Tbl_Klaim klaim) {
 		Klaim = klaim;
+	}
+	public int getNo_rek() {
+		return no_rek;
+	}
+	public void setNo_rek(int no_rek) {
+		this.no_rek = no_rek;
 	}
 	
 	
