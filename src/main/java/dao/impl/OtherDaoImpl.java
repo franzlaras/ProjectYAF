@@ -60,7 +60,7 @@ public class OtherDaoImpl implements OtherDao{
 	}
 
 	@Override
-	public void delete(Tbl_Other tbl_Other) {
+	public void delete(String tbl_Other) {
 		// TODO Auto-generated method stub
 		
 	}
