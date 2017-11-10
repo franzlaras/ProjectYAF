@@ -23,7 +23,6 @@ public class TestOther {
 //		b.setDeskripsi("Pijat");
 //		b.setJumlah(20000.0);
 //		mstKaryawandao.save(b);
-
 	}
 
 }
