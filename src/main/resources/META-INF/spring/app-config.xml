@@ -34,7 +34,7 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"  />
 		<property name="url" value="jdbc:sqlserver://localhost
-		;databaseName=DbProjectYAF"/>
+		;databaseName=ProjectRR"/>
 		<property name="username" value="sa"/>
 		<property name="password" value="123"/>	
 	</bean>

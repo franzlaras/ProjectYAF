@@ -5,17 +5,18 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import dao.OtherDao;
-import entity.Tbl_Other;
+import service.MstKaryawanSvc;
+import entity.MstKaryawan;
+
 
 public class TestOther {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("/META-INF/spring/app-config.xml");
-		OtherDao mstKaryawandao = ctx.getBean(OtherDao.class);
-		List<Tbl_Other> mst = mstKaryawandao.findAll();
-		for (Tbl_Other tbl_Other : mst) {
-			System.out.println(""+ tbl_Other.getDeskripsi());
+		MstKaryawanSvc mstKaryawandao = ctx.getBean(MstKaryawanSvc.class);
+		List<MstKaryawan> mst = mstKaryawandao.findName("September");
+		for (MstKaryawan tbl_Other : mst) {
+			System.out.println(""+ tbl_Other.getNamaKaryawan());
 		}
 		
 //		Tbl_Other b = new Tbl_Other();

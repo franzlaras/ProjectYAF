@@ -2,7 +2,7 @@
 <zk xmlns:c="client">
 	<window title="Indocyber-DataProject" border="normal"
 		apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('vm') @init('vmd.DpVmd')">
+		viewModel="@id('vm') @init('vmd.KaryawanVmd')">
 		<div hflex="1" vflex="1" sclass="banner">
 			<hbox hflex="1" vflex="1" align="center">
 				<a>
@@ -21,56 +21,63 @@
 				<column label="" width="190px" />
 			</columns>
 			<rows>
+
 				<row>
-					<label value="Periode : " />
-					<datebox id="db2" cols="12" format="MM, yyyy"
-						onCreate="self.value = new Date()" />
-					<!-- <datebox format="dd/MM/yyyy">
-						<attribute name="onChange">
-							import java.text.SimpleDateFormat;
-							SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
-							tb.value = sd.format(self.value);
-						</attribute>
-					</datebox>
-					<textbox id="tb" /> -->
+					<label value="Periode" />
+					<combobox constraint="no empty : wajib diisi"
+						selectedItem="@bind(vm.periode)"
+						onSelect="@command('findNama')">
+						<comboitem label="Januari" value="Januari" />
+						<comboitem label="February" value="February" />
+						<comboitem label="Maret" value="Maret" />
+						<comboitem label="April" value="April" />
+						<comboitem label="Mei" value="Mei" />
+						<comboitem label="Juni" value="Juni" />
+						<comboitem label="Juli" value="Juli" />
+						<comboitem label="Agustus" value="Agustus" />
+						<comboitem label="September" value="September" />
+						<comboitem label="Oktober" value="Oktober" />
+						<comboitem label="November" value="November" />
+						<comboitem label="Desember" value="Desember" />
+					</combobox>
 				</row>
 				<row>
 					<label value="Nama : " />
-					<bandbox id="bd" mold="rounded" autodrop="true">
-						<bandpopup>
-							<listbox height="150px" width="150px"
-								mold="paging" autopaging="true"
-								onSelect="bd.value=self.selectedItem.label; bd.close();">
-								<listhead></listhead>
-								<listitem label="${each}"
-									forEach="${languages}" />
-							</listbox>
-						</bandpopup>
-					</bandbox>
-					<!-- <columnlayout>
-						<columnchildren>
-						<textbox>
-						<custom-attributes
-						org.zkoss.zul.image.preload="true" />
-						</textbox>
-						<image src="/imgs/iconsearch.png" />
-						<button image="/imgs/iconsearch.png" width="10%"/>
-						</columnchildren>
-						</columnlayout> -->
+					<combobox id="combo" autodrop="true"
+						buttonVisible="false" 
+						model="@load(vm.listLaporan)"
+						selectedItem="@bind(vm.mstLaporan.nik.nik)"
+						onSelect="">
+						
+						<template name="model">
+							<comboitem label="@load(each.nik.namaKaryawan)"
+							          value="@load(each.kodeLaporan)" >
+							          </comboitem>
+						</template>
+					</combobox>
 				</row>
 				<row>
-					<label value="NIK : " />
-					<textbox readonly="true" value="17070022"
+					<label value="NIK" />
+						<textbox value=""
+						style="text-align:right;"  />
+				</row>				
+				<row>
+					<label value="No Rek : " />
+					<textbox readonly="true" value=""
 						style="text-align:right;" />
 				</row>
 				<row>
-					<label value="No Rek : " />
-					<textbox readonly="true" value="421-267-0395"
+					<label value="Project : " />
+					<textbox readonly="true" value=""
 						style="text-align:right;" />
 				</row>
 			</rows>
 		</grid>
 		<separator />
+		
+		
+		
+		
 		<groupbox closable="false" sclass="z-demo-config"
 			style="padding: 10px;">
 			<caption label="List Project"></caption>
@@ -86,24 +93,13 @@
 					</attribute> -->
 				<tabs>
 					<tab>Tab A</tab>
-					<tab>Tab B</tab>
-					<tab>Tab C</tab>
-					<tab>Tab D</tab>
-					<tab>Tab E</tab>
-					<!-- Plus Tab - used to trigger add tab event -->
-					<!-- <tab id="plusTab" label="+" sclass="plusTab">
-						Overwrite default click handing function
-						<attribute c:name="doClick_">
-						function (evt) { //Send an event named
-						"onTabAdd" to tabbox on server zAu.send(new
-						zk.Event(evt.target.getTabbox(), "onTabAdd",
-						null)); }
-						</attribute>
-						</tab> -->
+					
 				</tabs>
 				<tabpanels>
-					<tabpanel>
-						Tab A
+					<tabpanel >
+						<combobox>
+						<comboitem label=""></comboitem>
+						</combobox>
 						<grid>
 							<columns>
 								<column label="" width="11%"
@@ -116,59 +112,52 @@
 							<rows>
 								<row>
 									<label value="Transport : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;"  />
 									<label value="Taxi : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
 								</row>
 								<row>
 									<label value="Parkir : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
+									<doublebox value="" 
+										format=",###.#"
+										width="130px" style="text-align:right;" />
 									<label value="Lembur : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
 								</row>
 								<row>
 									<label value="Kesehatan : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
-									<label value="Entertain Internal : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
+									<label
+										value="Entertain Internal : " />
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
 								</row>
 								<row>
 									<label value="BPJS Kes : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
-									<label value="Entertain External : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
+									<label
+										value="Entertain External : " />
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
 								</row>
 								<row>
 									<label value="Reward Monthly : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
-									<textbox value="Other" width="100px"/>
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
+									<textbox value="Other"
+										width="100px" />
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
 								</row>
 								<row>
 									<label value="Reward Triwulan : " />
-									<doublebox 
-										format=",###.#" width="130px"
-										style="text-align:right;"/>
+									<doublebox format=",###.#"
+										width="130px" style="text-align:right;" />
 									<label value="" />
 									<label value="" />
 								</row>
@@ -415,6 +404,9 @@
 								</row>
 							</rows>
 						</grid>
+						
+						
+						
 						<vlayout>
 							<groupbox>
 								<space />

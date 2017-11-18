@@ -1,10 +1,10 @@
 .banner {
-	background-color:#102d35;
+	background-color:#147046;
 	color: white;
 	padding: 5px 10px;
 }
 .banner-head{
-	font-size: 2.4em;
+	font-size: 1.0em;
 }
 .banner .logout{
 	text-decoration: underline;
@@ -17,6 +17,11 @@
 	padding-top: 5px;
 }
 
+/* .title-font{
+	font-family: "Courier New", Courier, monospace;
+	font-size: 20px;
+} */
+
 .footer a,.footer a:VISITED {
 	color: white;	
 }
@@ -28,6 +33,7 @@
 
 .sidebar-fn{
 	cursor: pointer;
+	
 }
 
 
@@ -65,4 +71,96 @@
 
 .todo-box {
 	padding-right:4px;
+}
+
+.defaultOverflowZoom() {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.z-window {
+	// ZK-2115: the style should apply [overflow: hidden]
+	.defaultOverflowZoom();
+	border: 1px solid @containerBorderColor;
+	.borderRadius(@containerBorderRadius);
+	padding: @containerPadding;
+	background-color: @containerBackground;
+
+	&-shadow {
+		.boxShadow('0 3px 6px rgba(0, 0, 0, 0.24)');
+	}
+	&-header {
+		.fontStyle(@baseTitleFontFamily, @containerHeaderTextSize, normal, @containerHeaderColor);
+		line-height: @baseButtonWidth;
+		padding-bottom: @containerPadding;
+		.defaultOverflowZoom();
+		cursor: default;
+		&-move {
+			cursor: move;
+		}
+	}
+	&-content {
+		padding: @containerPadding;
+		background: @baseBackgroundColor;
+		color: @containerBodyColor;
+		.defaultOverflowZoom();
+	}
+	&-icon {
+		font-size: @containerButtonSize;
+		color: extract(@containerButtonColors, 1);
+		.displaySize(block, @baseButtonWidth + 4, @baseButtonHeight);
+		margin: auto 1px;
+		padding: 4px;
+		line-height: @baseButtonHeight;
+		text-align: center;
+		overflow: hidden;
+		cursor: pointer;
+		float: right;
+		&:hover {
+			color: extract(@containerButtonColors, 2);
+		}
+	}
+	&-resize-faker {
+		border: 1px dashed #1854C2;
+		background: #D7E6F7;
+		.opacity(0.5);
+		position: absolute;
+		left: 0;
+		top: 0;
+		overflow: hidden;
+		z-index: 60000;
+	}
+	&-move-ghost {
+		border: 1px solid @containerBorderColor;
+		.borderRadius(@containerBorderRadius);
+		padding: 0;
+		background: @colorPrimaryLighter;
+		.opacity(0.65);
+		position: absolute;
+		overflow: hidden;
+		cursor: move !important;
+		.z-window-header-move {
+			padding: 16px;
+		}
+		dl {
+			font-size: 0;
+			display: block;
+			border-top: 1px solid @containerBorderColor;
+			margin: 0;
+			padding: 0;
+			line-height: 0;
+			overflow: hidden;
+		}
+	}
+	&-embedded {
+		.z-window-shadow {
+			.boxShadow('none');
+		}
+	}
+	&-noborder {
+		border: 0;
+		> .z-window-content {
+			border: 0;
+		}
+	}
 }
